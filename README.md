@@ -1,6 +1,6 @@
-# agritech_bank
-git init
-git add .
-git commit -m "ciao"
-git remote add origin url
-git push --set-upstream origin master
+# agritech_bank 
+git init \n
+git add . \n
+git commit -m "ciao" \n
+git remote add origin url \n
+git push --set-upstream origin master \n
