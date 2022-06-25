@@ -37,6 +37,11 @@ namespace Banca.App
             //Console.WriteLine(service.GetBankAccountDetails(2));
             //Console.WriteLine(service.GetBankAccountDetails(3));
 
+            var bho = custService.BankStatement("124", 1);
+
+            Console.WriteLine(bho);
+
+
             string scelta = "";
             
             do
@@ -114,6 +119,8 @@ namespace Banca.App
             Console.WriteLine("Q - Esci");
             Console.WriteLine(" *** *** ***");
         }
+
+        
 
         private static string GetStringFromConsole(string msg, bool checkIfEmpty = false )
         {
