@@ -24,24 +24,64 @@ namespace Banca.Lib.Services
             BankAccount account = GetBankAccountByNumber(Number);
             string pinToCheck = account.Pin;
             if (pinToCheck == pin)
-                return GetBankAccountDetails(Number);
+            {
+                for(int i = 0; i < account.Transactions.Count; i ++)
+                {
+                    // Bisognerebbe creare lo script che ogni volta che si fa una transazione
+                    // aggiunge la log della stessa... comunque è un to do che farò
+                    Console.WriteLine($"{account.Transactions[i].Date}");
+                    Console.WriteLine($"{account.Transactions[i].Amount}");
+                }
+                return null;
+            }
             string s = "Pin Errato";
             return s;           
         }
 
-        public decimal CheckMyAmount(string Pin, int Number)
+        public string CheckMyAmount(string Pin, int Number)
         {
-            throw new NotImplementedException();
+            BankAccount account = GetBankAccountByNumber(Number);
+            string pinToCheck = account.Pin;
+            if (pinToCheck == Pin)
+                return GetBankAccountDetails(Number);
+            string s = "Pin Errato";
+            return s;
         }
 
         public string DepositIntoMyAccount(string Pin, int Number, decimal Money)
         {
-            throw new NotImplementedException();
+            BankAccount account = GetBankAccountByNumber(Number);
+            string pinToCheck = account.Pin;
+            if (pinToCheck == Pin)
+            {
+                account.AddMoney(Money);
+                Console.WriteLine($"{Money} sono stati aggiunti al tuo conto");
+                return BankStatement(Pin, Number);
+            }
+            string s = "Pin Errato";
+            return s;
+
+
         }
 
         public string WithdrawFromMyAccount(string Pin, int Number, decimal Money)
         {
-            throw new NotImplementedException();
+            BankAccount account = GetBankAccountByNumber(Number);
+            string pinToCheck = account.Pin;
+            if (pinToCheck == Pin)
+            {
+                account.TakeMoney(Money);
+                if(account.Amount < 0)
+                {
+                    account.AddMoney(Money);
+                    string stampa_messaggio = $"{Money}€  non sono stati ritirati perchè sei povero!";
+                    return stampa_messaggio;
+                }
+                Console.WriteLine($"{Money}€ sono stati ritirati dal tuo conto");
+                return BankStatement(Pin, Number);
+            }
+            string s = "Pin Errato";
+            return s;
         }
 
         public BankAccount GetBankAccountByNumber(int number)

@@ -37,9 +37,19 @@ namespace Banca.App
             //Console.WriteLine(service.GetBankAccountDetails(2));
             //Console.WriteLine(service.GetBankAccountDetails(3));
 
-            var bho = custService.BankStatement("124", 1);
+            var bho = custService.BankStatement("1234", 1);
 
             Console.WriteLine(bho);
+
+
+            Console.WriteLine(custService.DepositIntoMyAccount("1234", 1, 1000));
+            Console.WriteLine(custService.DepositIntoMyAccount("1234", 1, 1000));
+            Console.WriteLine(custService.DepositIntoMyAccount("1234", 1, 1000));
+
+            Console.WriteLine(custService.WithdrawFromMyAccount("1234", 1, 3000));
+            Console.WriteLine(custService.WithdrawFromMyAccount("1234", 1, 3000));
+
+            Console.WriteLine(custService.BankStatement("1234", 1));
 
 
             string scelta = "";

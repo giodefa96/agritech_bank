@@ -12,7 +12,7 @@ namespace Banca.Lib.Services
         /// <param name="Pin"></param>
         /// <param name="Number"></param>
         /// <returns></returns>
-        decimal CheckMyAmount(string Pin, int Number);
+        string CheckMyAmount(string Pin, int Number);
 
         /// <summary>
         /// Prelievo x dal conto c

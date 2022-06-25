@@ -83,5 +83,15 @@ namespace Banca.Lib.Domain
         {
             Status = BankAccountStatus.Blocked;
         }
+
+        public void AddMoney(decimal money)
+        {
+            Amount += money;
+        }
+
+        public void TakeMoney(decimal money)
+        {
+            Amount -= money;
+        }
     }
 }
